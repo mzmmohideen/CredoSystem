@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course</title>
+</head>
+<body>
+<table border="2">
+    <tr>
+        <td>Course Id</td> <td>Course Name</td> <td>Course Duration</td>
+    </tr>
+    {% for r in course %}
+    <tr>
+        <td>{{ r.course_id }}</td> <td> {{ r.course_name }}</td> <td> {{ r.course_duration }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
