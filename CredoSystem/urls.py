@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import index
-from CourseApp.views import CourseView
+from CourseApp.views import CourseView, UserReg
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('course/', CourseView)
+    path('courses/', CourseView),
+    path('user_reg/', UserReg),
+    # path('user_reg/', UserRegForm)
     # path('', index)
 ]
