@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import index
+# from CredoSystem.settings import STATIC_URL, STATIC_ROOT
+# from django.conf.urls.static import static
 from CourseApp.views import CourseView, UserReg
 
 urlpatterns = [
@@ -25,3 +27,6 @@ urlpatterns = [
     # path('user_reg/', UserRegForm)
     # path('', index)
 ]
+
+# urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
+

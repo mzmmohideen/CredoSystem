@@ -1,0 +1,90 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
+</head>
+<body>
+<section class="footer-form padding-top-xl padding-bottom-xl" aria-label="Contact Form">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 section5 text-center">
+          <h2 class="h1 font-w400">Registration Form</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+          <form name="contentForm" method="post" action="" role="form" data-toggle="validator" novalidate="true">
+          <div class="form schedule-assessment">
+            <div class="row margin-top-l">
+            <div class="form-group col-md-6">
+              <label for="full_name" class="sr-only">Full Name: </label>
+              <input name="full_name" id="full_name" placeholder="Full name" type="text" value="" required="required" data-error="Please enter your full name.">
+              <div class="help-block with-errors"></div>
+            </div><!-- close col-->
+            <div class="form-group col-md-6">
+              <label for="phone_number" class="sr-only">Phone Number: </label>
+              <input name="phone_number" id="phone_number" placeholder="Phone number" type="text" value="" required="required" data-error="Please enter your phone number">
+              <div class="help-block with-errors"></div>
+            </div><!-- close col-->
+            </div><!-- close row-->
+
+            <div class="row">
+            <div class="form-group col-md-6">
+              <label for="email" class="sr-only">Email Address: </label>
+              <input name="email" id="email" placeholder="Email Address" type="email" value="" required="required" data-error="Please enter a valid email.">
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="select_options" class="sr-only">What service are your interested in? </label>
+              <select name="select_options" required="required" data-error="Please select one option.">
+              <option value="">What courses are you interested in?</option>
+              <option value="B.E">B.E</option>
+              <option value="M.C.A">M.C.A</option>
+              <option value="M.E">M.E</option>
+              <option value="M.B.A">M.B.A</option>
+              <option value="Other">Other</option>
+              </select>
+              <div class="help-block with-errors"></div>
+            </div>
+            </div><!-- close row-->
+
+            <div class="row">
+            <div class="form-group col-md-12">
+              <div class="text-center">
+              <label>Do you want to receive a digital brochure?</label>
+              <div class="radio">
+                <label>
+                <input type="radio" name="digital_brochure" value="yes" required>
+                Yes, absolutely!
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                <input type="radio" name="digital_brochure" value="no" required>
+                No thanks.
+                </label>
+              </div>
+              </div>
+            </div>
+            </div><!-- close row-->
+            <div class="form-group text-center">
+            <input class="submit center-block btn btn-primary" value="Submit" type="submit">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+</html>

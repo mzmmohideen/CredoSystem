@@ -28,3 +28,14 @@ class Customer(models.Model):
 
     def __str__(self):
         return "%s-%s"%(self.cus_name, self.cus_id)
+
+
+class Registration(models.Model):
+    reg_id = models.AutoField(primary_key=True)
+    full_name = models.CharField(max_length=100, null=False)
+    email_id = models.EmailField(null=False)
+    phone_number = models.IntegerField(null=False)
+    selection_options = models.CharField(max_length=10, choices=[
+        ('B.E', 'B.E'), ('M.B.A', 'M.B.A'), ('M.E', 'M.E'), ('M.C.A', 'M.C.A'), ('Other', 'Other')
+    ], default='Other', name='course_name')
+    digital_brochure = models.CharField(max_length=5, choices=[('yes', 'yes'), ('no', 'no')], default='no')

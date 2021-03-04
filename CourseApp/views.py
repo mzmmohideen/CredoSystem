@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Course
+from .models import Course, Registration
 from django.contrib.auth.models import User
 from .credo import InputForm
 
@@ -15,12 +15,24 @@ from .credo import InputForm
 @csrf_exempt
 def UserReg(request):
     if request.method == 'GET':
-        return render(request, 'registration.html', {
+        return render(request, 'user_reg.html', {
             'form': InputForm()
         })
     elif request.method == 'POST':
-        User.objects.create(**request.POST)
-        return HttpResponse('success', status=200)
+        print(request.POST)
+        _data = {
+            'full_name': request.POST.get('full_name'),
+            'email_id': request.POST.get('email'),
+            'phone_number': request.POST.get('phone_number'),
+            'selection_options': request.POST.get('select_options'),
+            'digital_brochure': request.POST.get('digital_brochure'),
+        }
+        print(_data)
+        try:
+            Registration.objects.create(**_data)
+            return HttpResponse('success', status=200)
+        except Exception as err:
+            return HttpResponse(str(err), status=503)
     else:
         return HttpResponse('failed', status=400)
 
