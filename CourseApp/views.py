@@ -20,18 +20,19 @@ def UserReg(request):
         })
     elif request.method == 'POST':
         print(request.POST)
-        _data = {
-            'full_name': request.POST.get('full_name'),
-            'email_id': request.POST.get('email'),
-            'phone_number': request.POST.get('phone_number'),
-            'selection_options': request.POST.get('select_options'),
-            'digital_brochure': request.POST.get('digital_brochure'),
-        }
+        # _data = {
+        #     'full_name': request.POST.get('full_name'),
+        #     'email_id': request.POST.get('email'),
+        #     'phone_number': request.POST.get('phone_number'),
+        #     'course_name': request.POST.get('select_options'),
+        #     'digital_brochure': request.POST.get('digital_brochure'),
+        # }
         print(_data)
         try:
             Registration.objects.create(**_data)
             return HttpResponse('success', status=200)
         except Exception as err:
+            print('err', err)
             return HttpResponse(str(err), status=503)
     else:
         return HttpResponse('failed', status=400)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    {% block cdncss %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    {% endblock %}
+    {% block cuscss %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
+    {% endblock %}
+</head>
+<title>
+    {% block title %} {% endblock %}
+</title>
+<body>
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+{% block cdnjs %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+{% endblock %}
+
+{% block cusjs %}
+{% endblock %}
+</html>

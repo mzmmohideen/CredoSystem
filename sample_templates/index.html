@@ -1,14 +1,12 @@
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Credo Systemz</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block title %}
+    Credo Home
+{% endblock %}
+
+{% block content %}
 <marquee>
     <h1 style="color:red"> Welcome to Credo Systemz </h1>
 </marquee>
-
-</body>
-</html>
+<input id="btn_submit" value="SUbmit" type="button">
+{% endblock %}

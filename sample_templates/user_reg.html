@@ -1,12 +1,10 @@
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Registration</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/reg.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+  User Registration
+{% endblock %}
+
+{% block content %}
 <section class="footer-form padding-top-xl padding-bottom-xl" aria-label="Contact Form">
   <div class="wrapper">
     <div class="container">
@@ -18,7 +16,7 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-          <form name="contentForm" method="post" action="" role="form" data-toggle="validator" novalidate="true">
+          <form id="reg_form" name="contentForm" role="form" data-toggle="validator" novalidate="true">
           <div class="form schedule-assessment">
             <div class="row margin-top-l">
             <div class="form-group col-md-6">
@@ -73,7 +71,7 @@
             </div>
             </div><!-- close row-->
             <div class="form-group text-center">
-            <input class="submit center-block btn btn-primary" value="Submit" type="submit">
+            <input id="btn_submit" class="submit center-block btn btn-primary" value="Submit" type="submit">
             </div>
           </div>
 
@@ -82,9 +80,24 @@
     </div>
   </div>
 </section>
+{% endblock %}
 
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
-</html>
+{% block cusjs %}
+  <script>
+      $("#btn_submit").on("click", function() {
+        out = $("#reg_form").serializeArray();
+        obj = {}
+        for (row = 0; row < out.length; row++)  {
+          obj[out[row].name] = out[row].value;
+        }
+        console.log('obj', obj);
+        $.post(
+        "",
+        obj,
+        function(res, status) {
+          console.log('reg', reg, 'status', status);
+          alert(status);
+        });
+      });
+    </script>
+{% endblock %}

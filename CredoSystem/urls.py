@@ -23,9 +23,9 @@ from CourseApp.views import CourseView, UserReg
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('courses/', CourseView),
-    path('user_reg/', UserReg),
+    path('user_reg/', UserReg, name='reg'),
     # path('user_reg/', UserRegForm)
-    # path('', index)
+    path('', index, name='home')
 ]
 
 # urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
