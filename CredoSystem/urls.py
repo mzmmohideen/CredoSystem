@@ -15,17 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from .views import index
 # from CredoSystem.settings import STATIC_URL, STATIC_ROOT
 # from django.conf.urls.static import static
 from CourseApp.views import CourseView, UserReg
+from CourseApp.urls import CourseRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('courses/', CourseView),
     path('user_reg/', UserReg, name='reg'),
+    path('', index, name='home'),    
+    # DRF URLS
+    path('api-auth/', include('rest_framework.urls')),
+    path('course-app/', include(CourseRouter.urls)),
     # path('user_reg/', UserRegForm)
-    path('', index, name='home')
 ]
 
 # urlpatterns += static(STATIC_URL, document_root=STATIC_ROOT)
