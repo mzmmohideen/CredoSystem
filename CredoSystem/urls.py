@@ -16,20 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-from .views import index
+from .views import index, LoginCheck, LoginView #ApiLoginView
 # from CredoSystem.settings import STATIC_URL, STATIC_ROOT
 # from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 from CourseApp.views import CourseView, UserReg
 from CourseApp.urls import CourseRouter
 
 urlpatterns = [
+    path('login/', LoginView),
+    path('login_check/', LoginCheck),
     path('admin/', admin.site.urls),
+    path('api/', include(CourseRouter.urls)),
+    path('api/login/', obtain_auth_token, name='api_token_auth'),
     path('courses/', CourseView),
     path('user_reg/', UserReg, name='reg'),
     path('', index, name='home'),    
     # DRF URLS
+    # path('api/login/', ApiLoginView),
     path('api-auth/', include('rest_framework.urls')),
-    path('course-app/', include(CourseRouter.urls)),
     # path('user_reg/', UserRegForm)
 ]
 

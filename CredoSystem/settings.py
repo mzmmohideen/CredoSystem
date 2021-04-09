@@ -26,9 +26,10 @@ SECRET_KEY = 'b3z!k^xu31%%i%spko4dx!+9cr*3@$a(5tek61sbhpda5bjt*m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
+APIROOT = "http://127.0.0.1:8000"
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'AppName',
     'CourseApp',
-    'rest_framework'
+    # 'djoser',
+    'rest_framework',
+    'rest_framework.authtoken' #token based authentication
 ]
 
 MIDDLEWARE = [
@@ -131,8 +134,15 @@ STATICFILES_DIRS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        'rest_framework.permissions.AllowAny'
+        # 'rest_framework.permissions.AllowAny'
+        'rest_framework.authentication.TokenAuthentication',
     ]
+    ,
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
+
+# https://simpleisbetterthancomplex.com/tutorial/2018/11/22/how-to-implement-token-authentication-using-django-rest-framework.html

@@ -20,6 +20,18 @@ def UserReg(request):
         })
     elif request.method == 'POST':
         print(request.POST)
+        # _ed = {
+        #     "emp_name": 'name'
+        # }
+        # _bd = {
+        #     "business_info": ""
+        # }
+        # emp = Employee.objects.create(**_ed)
+        # _bd['emp_id'] = emp.emp_id
+        # Business.objects.create(**_bd)
+        #
+        #
+        # out = []
         # _data = {
         #     'full_name': request.POST.get('full_name'),
         #     'email_id': request.POST.get('email'),
@@ -44,6 +56,16 @@ def UserReg(request):
 #     print(request.POST)
 #
 
+# def login_required(func):
+#     def data(*args, **kwargs):
+#         if authenticate():
+#             func(*args, **kwargs)
+#         else:
+#             raise()
+#         pass
+#     return data
+
+# @login_required
 def CourseView(request):
     duration = request.GET.get('duration', 'not exist')
     if bool(duration) == True and duration.isdigit():

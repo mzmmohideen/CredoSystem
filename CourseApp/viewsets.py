@@ -1,10 +1,18 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, authtoken
 from .serializers import *
 
 
 class CourseViewSet(viewsets.ModelViewSet):
 	queryset = Course.objects.all()
 	serializer_class = CourseSerializer
+
+	# def create(self, request, *args, **kwargs):
+	# 	pass
+
+	# def get(self):
+	# 	for i in self.queryset:
+	# 		reg = Registration.objects.filter(course_id = i.id)
+	# 		i.add(reg)
 
 
 class ProductViewSet(viewsets.ModelViewSet):

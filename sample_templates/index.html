@@ -10,3 +10,12 @@
 </marquee>
 <input id="btn_submit" value="SUbmit" type="button">
 {% endblock %}
+{% block cusjs %}
+<script type="text/javascript">
+	$.get(
+    "/api/course/",
+    function(res) {
+      console.log('res', res);
+    });
+</script>
+{% endblock %}
